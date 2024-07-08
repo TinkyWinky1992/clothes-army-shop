@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -7,8 +8,9 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Typography from '@mui/material/Typography';
 import Drawer from '@mui/material/Drawer';
-import { NavBar } from "./NavigationBar";
-const pages = ["one", "two", "three"];
+import { NavBar } from "./navigationbar-component";
+import { logoImg } from "../assets";
+const pages = ["Gallery", "two", "three"];
 
 
 
@@ -28,7 +30,7 @@ export const MainAppBar: React.FunctionComponent = () => {
    
     return (
         <AppBar position="static" sx={{ backgroundColor: 'rgba(32, 32, 32, 0.7)' }}>
-            <Toolbar >
+          <Toolbar sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
                     <MenuIcon />
                 </IconButton>
@@ -41,7 +43,7 @@ export const MainAppBar: React.FunctionComponent = () => {
                 </Drawer>
                 
 
-                <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+                <Box gap={0.5} sx={{ flexGrow: 1, display:"flex"  }}>
                     <Tabs value={selectedPage} onChange={onClick}>
                         {pages.map((page, index) => (
                             <Tab
@@ -65,17 +67,18 @@ export const MainAppBar: React.FunctionComponent = () => {
                         ))}
                     </Tabs>
                 </Box>
-                <Box >
-                    
-                </Box>
-                <Box sx={{ mr: 2, height: 50}}>
+                <Box  gap={0.5} sx={{ display: 'flex' }}>
+                  <Box alignItems= "center" sx={{ mr: 2, height: 50, display:{xs: "none", md: "flex"} }}>
                     <Typography variant="h6" sx={{ color: "white", fontFamily: "monospace", fontWeight: 700 }}>ARMOURY TECH</Typography>
-                </Box>
-                <IconButton sx={{ p: 0 , width: '10px', height: '10px' }}>
-                    <Box  component="img" src="/src/components/LogoCompany.png" sx={{ width: '150px', height: '150px' }} />
-                </IconButton>
+                  </Box>
 
-            </Toolbar>
+                      <IconButton sx={{ p: 2 , width: '60px', height: '60px' ,}}>
+                        <Box  component="img" src={logoImg} sx={{ width: '150px', height: '150px'}} />
+                      </IconButton>
+             
+                  
+                </Box>
+          </Toolbar>
         </AppBar>
     );
 };

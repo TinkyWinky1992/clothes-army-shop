@@ -6,19 +6,18 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
-import InboxIcon from '@mui/icons-material/Inbox';
+
 import MailIcon from '@mui/icons-material/Mail';
 import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
+import HistoryIcon from '@mui/icons-material/History';
+import LogoutIcon from '@mui/icons-material/Logout';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 const drawerItems = [
     { text: 'Shopping Cart', icon: <ShoppingCartIcon /> },
-    { text: 'Payment Histroy', icon: <StarIcon /> },
+    { text: 'Payment Histroy', icon: <HistoryIcon /> },
     { text: 'Content us', icon: <MailIcon /> },
-    { text: 'Log out', icon: <InboxIcon /> },
-    { text: 'All mail', icon: <MailIcon /> },
-    { text: 'Trash', icon: <InboxIcon /> },
-    { text: 'Spam', icon: <MailIcon /> }
+    { text: 'Log out', icon: <LogoutIcon /> },
   ];
 
 export const NavBar:React.FC = () => {
@@ -42,13 +41,13 @@ export const NavBar:React.FC = () => {
                 </List>  
                 <Divider />
                 <List>
-                    {['Shopping Cart', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                        <ListItem key={text} disablePadding >
+                    {drawerItems.map((item) => (
+                        <ListItem key={item.text} disablePadding >
                             <ListItemButton>
                                 <ListItemIcon sx={{color: 'white'}}>
-                                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                    {item.icon}
                                 </ListItemIcon>
-                                <ListItemText primary={text} sx={{color: 'white'}} />
+                                <ListItemText primary={item.text} sx={{color: 'white'}} />
                             </ListItemButton>
                         </ListItem>
                     ))}
