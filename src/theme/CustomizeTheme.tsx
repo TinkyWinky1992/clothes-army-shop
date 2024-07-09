@@ -5,10 +5,16 @@ import Tab from '@mui/material/Tab';
 import MenuIcon from '@mui/icons-material/Menu';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
+import { Grid } from "@mui/material";
 
-interface LogoImgProps {
-    src: string;
-}
+export const GridLayout = styled(Grid)(({ theme }) => ({
+    width: '100%',
+    height: '500px',
+    [theme.breakpoints.down('sm')]: {
+        width: '100%',
+        height: '100px',
+    },
+})) 
 
 export const LogoImg = styled('img')(({ theme }) => ({
     width: '40px',
@@ -17,7 +23,7 @@ export const LogoImg = styled('img')(({ theme }) => ({
         width: '20px',
         height: '20px',
     },
-})) as React.FC<LogoImgProps>;
+})) 
 
 export const Title = styled(Typography)(({ theme }) => ({
     fontFamily: 'monospace',
@@ -30,7 +36,7 @@ export const Title = styled(Typography)(({ theme }) => ({
     [theme.breakpoints.up('md')]: {
         fontSize: '1.25rem',
     },
-})) as React.FC;
+}))
 
 export const ToolStyle = styled(Toolbar)(({ theme }) => ({
     [theme.breakpoints.down('sm')]: {
@@ -39,7 +45,7 @@ export const ToolStyle = styled(Toolbar)(({ theme }) => ({
     [theme.breakpoints.up('md')]: {
         minHeight: 54,
     },
-})) as React.FC;
+})) 
 
 export const TabStyle = styled(Tab)(({ theme }) => ({
     margin: 1,
@@ -52,7 +58,7 @@ export const TabStyle = styled(Tab)(({ theme }) => ({
     "&:hover": {
         transform: "translateY(-4px)",
     },
-})) as React.FC;
+})) 
 
 export const IconStyle = styled(MenuIcon)(({ theme }) => ({
     [theme.breakpoints.down('sm')]: {
@@ -61,4 +67,4 @@ export const IconStyle = styled(MenuIcon)(({ theme }) => ({
     [theme.breakpoints.up('md')]: {
         minHeight: 54,
     },
-})) as React.FC;
+})) 

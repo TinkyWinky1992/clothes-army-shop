@@ -27,6 +27,7 @@ export const MainAppBar: React.FunctionComponent = () => {
         setOpen(newOpen);
     };
 
+    
 
     return (
         <AppBar position="static" sx={{ backgroundColor: 'rgba(32, 32, 32, 0.7)' }}>

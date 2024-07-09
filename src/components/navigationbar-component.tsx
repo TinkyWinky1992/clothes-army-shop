@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import React, { useState } from "react";
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
