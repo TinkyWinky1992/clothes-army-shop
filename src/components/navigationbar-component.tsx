@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
@@ -6,18 +7,23 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
-
 import MailIcon from '@mui/icons-material/Mail';
 import Typography from '@mui/material/Typography';
-import { Grid } from '@mui/material';
+import { Grid, Hidden } from '@mui/material';
 import HistoryIcon from '@mui/icons-material/History';
 import LogoutIcon from '@mui/icons-material/Logout';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import "../fonts/font.css" 
+const hiddenDrwaerItems = [
+    { text: 'גלריה', icon: <ShoppingCartIcon /> },
+    { text: 'חנות', icon: <HistoryIcon /> },
+    { text: 'Three', icon: <MailIcon /> },
+]
 const drawerItems = [
-    { text: 'Shopping Cart', icon: <ShoppingCartIcon /> },
-    { text: 'Payment Histroy', icon: <HistoryIcon /> },
-    { text: 'Content us', icon: <MailIcon /> },
-    { text: 'Log out', icon: <LogoutIcon /> },
+    { text: 'עגלת קניות', icon: <ShoppingCartIcon /> },
+    { text: 'היסטוריית תשלומים', icon: <HistoryIcon /> },
+    { text: 'יצירת קשר', icon: <MailIcon /> },
+    { text: 'התנתקות', icon: <LogoutIcon /> },
   ];
 
 export const NavBar:React.FC = () => {
@@ -37,9 +43,25 @@ export const NavBar:React.FC = () => {
                 onKeyDown={toggleDrawer(false)}
                 >
                 <List sx={{padding: 2}}>
-                    <Typography variant="h6" sx={{ color: "white", fontFamily: "monospace", fontWeight: 700 }}>Profile</Typography>
+                    <Typography variant="h6" sx={{ color: "white", fontFamily: "hebrewFont", fontWeight: 700 }}>תפריט</Typography>
                 </List>  
                 <Divider />
+                <Hidden mdUp>
+                <List>
+                    {hiddenDrwaerItems.map((item) => (
+                        <ListItem key={item.text} disablePadding sx={{fontFamily: "hebrewFont"}} >
+                            <ListItemButton>
+                                <ListItemIcon sx={{color: 'white'}}>
+                                    {item.icon}
+                                </ListItemIcon>
+                                <ListItemText primary={item.text} sx={{ color: 'white', fontFamily: 'hebrewFont, Arial, sans-serif' }} />
+                            </ListItemButton>
+                        </ListItem>
+                    ))}
+                </List>
+                <Divider />
+                    
+                </Hidden>
                 <List>
                     {drawerItems.map((item) => (
                         <ListItem key={item.text} disablePadding >
@@ -47,7 +69,7 @@ export const NavBar:React.FC = () => {
                                 <ListItemIcon sx={{color: 'white'}}>
                                     {item.icon}
                                 </ListItemIcon>
-                                <ListItemText primary={item.text} sx={{color: 'white'}} />
+                                <ListItemText  primary={item.text} sx={{ color: 'white', fontFamily: 'hebrewFont' }} />
                             </ListItemButton>
                         </ListItem>
                     ))}
