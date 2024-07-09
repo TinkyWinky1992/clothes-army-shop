@@ -7,29 +7,33 @@ import { imageList } from "../assets";
 
 export const ShowCase: React.FunctionComponent = () => {
     const [current_index, setIndex] = useState(0);
-    const [transition, setTransition] = useState("");
-
+    const [fadeOut, setFadeOut] = useState(false);
+    
     const moveToNextImg = () => {
-        const nextIndex = (current_index + 1) % imageList.length;
-        setIndex(nextIndex);
-        setTransition("fadeinLeft"); 
+        setFadeOut(true);
         setTimeout(() => {
-            setTransition("");
+            const nextIndex = (current_index + 1) % imageList.length;
+            setIndex(nextIndex);
+            setFadeOut(false)
         }, 500);
+ 
+
     }
 
     const moveToBelowImg = () => {
+        setFadeOut(true);
         const nextIndex = current_index === 0 ? imageList.length - 1 : current_index - 1;
-        setIndex(nextIndex);
-        setTransition("fadeinRight"); 
         setTimeout(() => {
-            setTransition("");
+            setIndex(nextIndex);
+            setFadeOut(false);
         }, 500);
+
+
     }
 
     return (
         <Grid container spacing={2} direction="column">
-            <GridLayout sx={{ background: "white", display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: "center" }}>
+            <GridLayout sx={{ backgroundColor: 'rgba(32, 32, 32, 0.7)', display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: "center" }}>
                 <IconButton onClick={moveToBelowImg}>
                     <ArrowBackIosNewIcon />
                 </IconButton>
@@ -40,9 +44,8 @@ export const ShowCase: React.FunctionComponent = () => {
                         style={{
                             maxWidth: "50%",
                             maxHeight: "50%",
-                            transform: transition === "fadeinRight" ? "translateX(300px)" : transition === "fadeinLeft" ? "translateX(-300px)" : "none",
-                            opacity: transition ? 0 : 1,
-                            transition: "transform 0.5s ease"
+                            opacity: fadeOut ? 0 : 1,
+                            transition: "opacity  0.5s ease"
                         }}
                     />
                 </Box>
@@ -50,7 +53,6 @@ export const ShowCase: React.FunctionComponent = () => {
                     <ArrowForwardIosIcon />
                 </IconButton>
             </GridLayout>
-            <Grid item md={4} xl={4} height="100px" sx={{ background: "green" }}>Item 2</Grid>
         </Grid>
     );
 };

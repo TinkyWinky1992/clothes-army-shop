@@ -23,8 +23,7 @@ const drawerItems = [
     { text: 'עגלת קניות', icon: <ShoppingCartIcon /> },
     { text: 'היסטוריית תשלומים', icon: <HistoryIcon /> },
     { text: 'יצירת קשר', icon: <MailIcon /> },
-    { text: 'התנתקות', icon: <LogoutIcon /> },
-  ];
+];
 
 export const NavBar:React.FC = () => {
     const [open, setOpen] = useState(false);

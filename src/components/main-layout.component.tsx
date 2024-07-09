@@ -16,6 +16,9 @@ export const MainLayout: React.FC = () => {
                 <Grid item>
                     <ShowCase/>
                 </Grid>
+                <Grid item>
+                    <ImageGallery />
+                </Grid>
             </Grid>
 
         </Box>

@@ -1,12 +1,12 @@
 import logo from './LogoCompany.png';
-import image1 from './items/WhatsApp Image 2024-07-07 at 7.06.39 PM.jpeg'
-import image2 from './items/WhatsApp Image 2024-07-07 at 7.06.40 PM (1).jpeg'
-import image3 from './items/WhatsApp Image 2024-07-07 at 7.06.40 PM.jpeg'
-import image4 from './items/WhatsApp Image 2024-07-07 at 7.06.41 PM (1).jpeg'
-import image5 from './items/WhatsApp Image 2024-07-07 at 7.06.41 PM.jpeg'
-import image6 from './items/WhatsApp Image 2024-07-07 at 7.06.42 PM (1).jpeg'
-import image7 from './items/WhatsApp Image 2024-07-07 at 7.06.42 PM.jpeg'
-import image8 from './items/WhatsApp Image 2024-07-07 at 7.06.43 PM (1).jpeg'
+import image1 from './itempng/im1.png'
+import image2 from './itempng/im2.png'
+import image3 from './itempng/im3.png'
+import image4 from './itempng/im4.png'
+import image5 from './itempng/im5.png'
+import image6 from './itempng/im6.png'
+import image7 from './itempng/im7.png'
+import image8 from './itempng/im8.png'
 
 export const imageList: (string | undefined)[] = [
     image1 as string,
