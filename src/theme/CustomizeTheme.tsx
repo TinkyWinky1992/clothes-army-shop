@@ -9,25 +9,40 @@ import { Button, Grid } from "@mui/material";
 
 export const GridLayout = styled(Grid)(({ theme }) => ({
     width: '100%',
-    height: '500px',
+    minHeight: '100vh', 
 
     [theme.breakpoints.down('sm')]: {
         width: '100%',
-        height: '100px',
+        minHeight: '100vh', 
     },
-})) 
+}));
 export const ButtonResponsive = styled(Button)(({ theme }) => ({
-    width: '300px',
-    height: '300px',
+    width: '180px',
+    height: '180px',
     borderRadius: "10px", 
     justifyContent: 'center', 
     alignItems: 'center',
-  
+    marginTop:'10px',
+
     [theme.breakpoints.down('sm')]: {
       width: '100px',
       height: '100px',
+
     },
 }))
+
+export const ImgResponsive = styled('img')(({ theme }) => ({
+    width: '40%',
+    height: '40%',
+    marginTop: "20px",
+    
+
+
+    [theme.breakpoints.down('sm')]: {
+        width: '20%',
+        height: '20%',
+    },
+})) 
 export const LogoImg = styled('img')(({ theme }) => ({
     width: '40px',
     height: '40px',
