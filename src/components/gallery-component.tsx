@@ -1,23 +1,36 @@
 import React from 'react';
-import Box from '@mui/material/Box';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
-import { imageList } from "../assets"; // Make sure your import path is correct
+import ImageListItemBar from '@mui/material/ImageListItemBar';
+import { ButtonResponsive } from '../theme';
+import { itemList } from '../assets';
 import { GridLayout } from '../theme';
+import { Button, Grid } from '@mui/material';
 
 export const ImageGallery: React.FC = () => {
   return (
     <GridLayout sx={{ justifyContent: 'center', alignItems: 'center' }}>
-      <ImageList variant="masonry" cols={5} gap={8}>
-        {Object.values(imageList).map((image, index) => (
-          <ImageListItem key={index}>
-            <img src={image} alt={`Image ${index}`} loading="lazy" 
-             style={{
-                      maxWidth: "30%",
-                      maxHeight: "50%",
+      <ImageList variant="masonry" cols={5} gap={8} >
+        {Object.values(itemList).map((image, index) => (
+          <ButtonResponsive variant="contained" sx={{backgroundColor: 'rgba(0, 0, 0, 0.7)'}}>
+
+          
+            <ImageListItem key={index} sx={{width: "200px", height: "200px"}}> {/* Set width and height for a square image */}
+              <img src={image} alt={`Image ${index}`} loading="lazy"  
+              style={{
+                        maxWidth: "50%",
+                        maxHeight: "50%",
+                        borderRadius: "10px", // add a rounded corner to the image
+                        
                         }} />
-          </ImageListItem>
-        ))}
+              <ImageListItemBar
+                title={`Image ${index}`}
+                subtitle={`Details about image ${index}`}
+                position="below"
+              />
+            </ImageListItem>
+          </ButtonResponsive>
+          ))}
       </ImageList>
     </GridLayout>
   );

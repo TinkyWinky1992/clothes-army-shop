@@ -5,17 +5,29 @@ import Tab from '@mui/material/Tab';
 import MenuIcon from '@mui/icons-material/Menu';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
-import { Grid } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 
 export const GridLayout = styled(Grid)(({ theme }) => ({
     width: '100%',
     height: '500px',
+
     [theme.breakpoints.down('sm')]: {
         width: '100%',
         height: '100px',
     },
 })) 
-
+export const ButtonResponsive = styled(Button)(({ theme }) => ({
+    width: '300px',
+    height: '300px',
+    borderRadius: "10px", 
+    justifyContent: 'center', 
+    alignItems: 'center',
+  
+    [theme.breakpoints.down('sm')]: {
+      width: '100px',
+      height: '100px',
+    },
+}))
 export const LogoImg = styled('img')(({ theme }) => ({
     width: '40px',
     height: '40px',
