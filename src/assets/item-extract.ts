@@ -23,24 +23,104 @@ import secondbackground from './c.jpg'
 export const BackGround = background;
 export const SecondBackGround = secondbackground;
 
-export const itemList: (string | undefined)[] = [
-    image1 as string,
-    image2 as string,
-    image3 as string,
-    image4 as string,
-    image5 as string,
-    image6 as string,
-    image7 as string,
-    image8 as string,
-    image9 as string,
-    image10 as string,
-    image11 as string,
-    image12 as string,
-    image13 as string,
-    image14 as string,
-    image15 as string,
-    image16 as string,
-    image17 as string,
-    image18 as string,
-    
-  ];
+export interface ItemListInterface {
+    url: string;
+    details: string;
+    name: string;
+      
+}
+export const ItemList:ItemListInterface[] = [
+    {
+      url: image1 as string,
+      details: 'Details about image 1',
+      name: 'Image 1',
+    },
+    {
+      url: image2 as string,
+      details: 'Details about image 2',
+      name: 'Image 2',
+    },
+    {
+      url: image3 as string,
+      details: 'Details about image 3',
+      name: 'Image 3',
+    },
+    {
+      url: image4 as string,
+      details: 'Details about image 4',
+      name: 'Image 4',
+    },
+    {
+      url: image5 as string,
+      details: 'Details about image 5',
+      name: 'Image 5',
+    },
+    {
+      url: image6 as string,
+      details: 'Details about image 6',
+      name: 'Image 6',
+    },
+    {
+      url: image7 as string,
+      details: 'Details about image 7',
+      name: 'Image 7',
+    },
+    {
+      url: image8 as string,
+      details: 'Details about image 8',
+      name: 'Image 8',
+    },
+    {
+      url: image9 as string,
+      details: 'Details about image 9',
+      name: 'Image 9',
+    },
+    {
+      url: image10 as string,
+      details: 'Details about image 10',
+      name: 'Image 10',
+    },
+    {
+      url: image11 as string,
+      details: 'Details about image 11',
+      name: 'Image 11',
+    },
+    {
+      url: image12 as string,
+      details: 'Details about image 12',
+      name: 'Image 12',
+    },
+    {
+      url: image13 as string,
+      details: 'Details about image 13',
+      name: 'Image 13',
+    },
+    {
+      url: image14 as string,
+      details: 'Details about image 14',
+      name: 'Image 14',
+    },
+    {
+      url: image15 as string,
+      details: 'Details about image 15',
+      name: 'Image 15',
+    },
+
+    {
+        url: image16 as string,
+        details: 'Details about image 16',
+        name: 'Image 16',
+    },
+
+    {
+        url: image17 as string,
+        details: 'Details about image 17',
+        name: 'Image 17',
+    },
+
+    {
+        url: image18 as string,
+        details: 'Details about image 18',
+        name: 'Image 18',
+    }
+]
