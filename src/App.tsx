@@ -6,7 +6,7 @@ import './App.css';
 function Layout() {
   return (
     <div>
-      <MainAppBar />
+      <MainAppBar  />
       <Outlet />
     </div>
   );

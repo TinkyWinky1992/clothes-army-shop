@@ -8,11 +8,6 @@ import image_png6 from './itempng/im6.png'
 import image_png7 from './itempng/im7.png'
 import image_png8 from './itempng/im8.png'
 
-interface ImageItem {
-    url: string;
-    details: string;
-    name: string;
-}
 export const ImagePngList: (string | undefined)[] = [
     image_png1 as string,
     image_png2 as string,

@@ -1,19 +1,53 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
+import InputBase from '@mui/material/InputBase';
 import Toolbar from '@mui/material/Toolbar';
 import Tab from '@mui/material/Tab';
 import MenuIcon from '@mui/icons-material/Menu';
 import Typography from '@mui/material/Typography';
-import { styled } from '@mui/material/styles';
+import { styled,alpha  } from '@mui/material/styles';
 import { Button, Grid } from "@mui/material";
+
+
+export const Search = styled('div')(({ theme }) => ({
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    '&:hover': {
+      backgroundColor: alpha(theme.palette.common.white, 0.25),
+    },
+    marginRight: theme.spacing(2),
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(3),
+      width: 'auto',
+    },
+    [theme.breakpoints.down('sm')]: {
+        marginLeft: theme.spacing(5),
+        width: 'auto',
+    },
+  }));
+
+
+
+export const TitleRsponsive = styled(Grid)(({ theme }) => ({
+    fontSize:"40px",
+
+    [theme.breakpoints.down('sm')]: {
+        fontSize:"20px",
+    },
+}));
+
 
 export const GridLayout = styled(Grid)(({ theme }) => ({
     width: '100%',
-    minHeight: '100vh', 
+    minHeight: '70vh', 
 
     [theme.breakpoints.down('sm')]: {
         width: '100%',
         minHeight: '100vh', 
+        
     },
 }));
 export const ButtonResponsive = styled(Button)(({ theme }) => ({
@@ -58,7 +92,7 @@ export const Title = styled(Typography)(({ theme }) => ({
     alignSelf: "center",
     color: "white",
     [theme.breakpoints.down('sm')]: {
-        fontSize: '1rem',
+        fontSize: '0.7rem',
     },
     [theme.breakpoints.up('md')]: {
         fontSize: '1.25rem',
