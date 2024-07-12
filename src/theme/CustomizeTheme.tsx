@@ -4,6 +4,7 @@ import InputBase from '@mui/material/InputBase';
 import Toolbar from '@mui/material/Toolbar';
 import Tab from '@mui/material/Tab';
 import MenuIcon from '@mui/icons-material/Menu';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Typography from '@mui/material/Typography';
 import { styled,alpha  } from '@mui/material/styles';
 import { Button, Grid } from "@mui/material";
@@ -121,11 +122,27 @@ export const TabStyle = styled(Tab)(({ theme }) => ({
     },
 })) 
 
-export const IconStyle = styled(MenuIcon)(({ theme }) => ({
-    [theme.breakpoints.down('sm')]: {
-        minHeight: 10,
+export const IconMenuStyle = styled(MenuIcon)(({ theme }) => ({
+    [theme.breakpoints.only('sm')]: {
+        
+        minHeight: 20,
+        marginRight: 10,
     },
+
+
     [theme.breakpoints.up('md')]: {
-        minHeight: 54,
+        fontSize: 54,
+    },
+}))
+
+export const IconCartStyle = styled(ShoppingCartIcon)(({ theme }) => ({
+    [theme.breakpoints.down('sm')]: {
+        fontSize : 20,
+    },
+
+
+
+    [theme.breakpoints.up('md')]: {
+        fontSize : 30,
     },
 })) 

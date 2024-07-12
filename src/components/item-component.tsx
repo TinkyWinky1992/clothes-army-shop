@@ -2,11 +2,15 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { GridLayout, TitleRsponsive } from '../theme';
 import { Box, Typography, Button, Grid } from '@mui/material';
+import { addItemToCart, store} from './Cart';
 import "../fonts/font.css";
 
 export const ItemShowCase: React.FC = () => {
     const { state } = useLocation();
 
+    const handleAddToCart = () => {
+      store.dispatch(addItemToCart(state.image));
+    };
 
     return (
         <GridLayout container sx={{ backgroundColor: 'rgba(32, 32, 32, 0.7)', justifyContent: 'center', alignItems: 'center' }}>
@@ -56,7 +60,7 @@ export const ItemShowCase: React.FC = () => {
                     gap: 2,
                     mt: 2,
                     }}>
-                    <Button variant="contained" sx={{ marginBlockEnd: 5, backgroundColor: "#007bff", color: "white", fontFamily: "hebrewFont" }}>
+                    <Button variant="contained" onClick={handleAddToCart} sx={{ marginBlockEnd: 5, backgroundColor: "#007bff", color: "white", fontFamily: "hebrewFont" }}>
                         הוספה לעגלה
                     </Button>
                     <Button variant="contained" sx={{ marginBlockEnd: 5, backgroundColor: "#dc3545", color: "white", fontFamily: "hebrewFont" }}>

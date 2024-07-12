@@ -6,8 +6,9 @@ import Toolbar from '@mui/material/Toolbar';
 import { Tabs, IconButton, TextField, Autocomplete, Button } from "@mui/material";
 import Drawer from '@mui/material/Drawer';
 import { NavBar } from "./navigationbar-component";
+import { NavigationCart } from "./navigationcart-component";
 import { logoImg } from "../assets";
-import { TabStyle, LogoImg, IconStyle, Title, Search } from "../theme";
+import { TabStyle, LogoImg, IconMenuStyle, IconCartStyle, Title, Search } from "../theme";
 import { ItemList, ItemListInterface } from "../assets";
 
 
@@ -15,9 +16,10 @@ import { ItemList, ItemListInterface } from "../assets";
 const labeltest = ItemList.map(item => ({ label: item.name, obj: item  }));
 
 export const MainAppBar: React.FunctionComponent = () => {
-    const pages = ["גלריה", "חנות", "שלוש"];
+    const pages = ["יצירת קשר", "חנות"];
     const [selectedPage, setSelectedPage] = useState(0);
-    const [open, setOpen] = useState(false);
+    const [openMenu, setOpenMenu] = useState(false);
+    const [openCart, setOpenCart] = useState(false);
     const navigation = useNavigate();
 
     const onClickToItem = (image: ItemListInterface) => {
@@ -31,22 +33,37 @@ export const MainAppBar: React.FunctionComponent = () => {
         setSelectedPage(newValue);
     }
 
-    const toggleDrawer = (newOpen: boolean) => () => {
-        setOpen(newOpen);
+    const toggleDrawerMenu = (newOpen: boolean) => () => {
+        setOpenMenu(newOpen);
     };
+
+    const toggleDrawerCart = (newOpen: boolean) =>() => {
+        setOpenCart(newOpen)
+    }
 
     return (
         <AppBar position="static" sx={{ backgroundColor: 'rgba(32, 32, 32, 0.7)' }}>
             <Toolbar sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <IconButton sx={{ position: "absolute", left: 30 }} edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
-                    <IconStyle />
+                <IconButton sx={{ position: "absolute", left: 30, display: { xs: "flex", md: "none" } }} edge="start" color="inherit" aria-label="menu" onClick={toggleDrawerMenu(true)}>
+                    <IconMenuStyle />
                 </IconButton>
                 <Drawer
                     anchor="left"
-                    open={open}
-                    onClose={toggleDrawer(false)}
+                    open={openMenu}
+                    onClose={toggleDrawerMenu(false)}
                 >
                     <NavBar />
+                </Drawer>
+
+                <IconButton sx={{ position: "absolute", left:{xs:"4rem" , sm:100 }  }} edge="start" color="inherit" aria-label="menu" onClick={toggleDrawerCart(true)}>
+                    <IconCartStyle />
+                </IconButton>
+                <Drawer
+                    anchor="left"
+                    open={openCart}
+                    onClose={toggleDrawerCart(false)}
+                >
+                    <NavigationCart />
                 </Drawer>
                 <Box sx={{ marginRight: { sm: "50px", xs: "80px" } }}>
                     <Search>

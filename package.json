@@ -11,10 +11,12 @@
   },
   "dependencies": {
     "@react-spring/parallax": "^9.7.3",
+    "@reduxjs/toolkit": "^2.2.6",
     "@tabler/icons-react": "^3.9.0",
     "react": "^18.3.1",
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-dom": "^18.3.1",
+    "react-redux": "^9.1.2",
     "react-responsive": "^10.0.0",
     "react-router-dom": "^6.24.1"
   },
@@ -22,6 +24,7 @@
     "@types/react": "^18.3.3",
     "@types/react-anchor-link-smooth-scroll": "^1.0.5",
     "@types/react-dom": "^18.3.0",
+    "@types/redux": "^3.6.0",
     "@typescript-eslint/eslint-plugin": "^7.13.1",
     "@typescript-eslint/parser": "^7.13.1",
     "@vitejs/plugin-react": "^4.3.1",

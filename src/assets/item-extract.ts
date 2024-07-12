@@ -31,7 +31,6 @@ export interface ItemListInterface {
     price: string
       
 }
-export const nameList:string[] = ["ווסט מודרלי", "ווסט שייטת דור 3 ", "רצועה לנשק ",]
 export const ItemList:ItemListInterface[] = [
     {
       url: image1 as string,

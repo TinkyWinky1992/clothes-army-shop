@@ -21,7 +21,6 @@ const hiddenDrwaerItems = [
 ]
 const drawerItems = [
     { text: 'עגלת קניות', icon: <ShoppingCartIcon /> },
-    { text: 'היסטוריית תשלומים', icon: <HistoryIcon /> },
     { text: 'יצירת קשר', icon: <MailIcon /> },
 ];
 
