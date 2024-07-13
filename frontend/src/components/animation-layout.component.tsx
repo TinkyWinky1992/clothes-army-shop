@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import { BackGround, SecondBackGround } from "../assets";
 import { GridLayout } from '../theme';
@@ -32,7 +33,8 @@ export const AnimationLayout: React.FC = () => {
                                 height: '100%',
                                 zIndex: 1, 
                             }}>
-                                <ShowCase />
+                                <ShowCase/>
+                                
                             </Grid>
                             
   
@@ -69,5 +71,16 @@ export const AnimationLayout: React.FC = () => {
 }
 /*
 
+    const [image, setImage] = useState<string>('');
 
+    useEffect(() => {
+        getItem()
+         .then(response => {
+            const imageData = btoa(String.fromCharCode(...new Uint8Array(response)));
+            setImage(`data:image/jpeg;base64,${imageData}`);
+          })
+         .catch(error => {
+            console.error(error);
+          });
+      }, []);
 */

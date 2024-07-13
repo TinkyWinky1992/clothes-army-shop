@@ -6,7 +6,6 @@ import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import { Avatar, Grid } from '@mui/material';
 import "../fonts/font.css" 
-import imgtest from '../assets/item/WhatsApp Image 2024-07-07 at 7.06.40 PM.jpeg'
 import { useSelector } from 'react-redux';
 import { selectCartItems } from "./Cart";
 
@@ -24,13 +23,13 @@ export const NavigationCart: React.FC = () => {
           <Divider />
           {items.map((item, index) => (
             <Box key={index} display="flex" sx={{ pt: 2, pd: 2 }} alignItems="start" justifyContent="space-between">
-              <Avatar src={item.url} sx={{ width: 96, height: 96 }} />
+              <Avatar src={item.image} sx={{ width: 96, height: 96 }} />
               <Box display="flex" flexDirection="column">
                 <Typography variant="h6" fontFamily="hebrewFont" color="white" sx={{ direction: "rtl" }}>
                   {item.name}
                 </Typography>
                 <Typography variant="subtitle2" fontFamily="hebrewFont" color="white" sx={{ direction: "rtl" }}>
-                  {item.description}
+                  {item.details}
                 </Typography>
               </Box>
             </Box>
