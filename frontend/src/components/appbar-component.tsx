@@ -1,28 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import { useNavigate } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import { Tabs, IconButton, TextField, Autocomplete, Button } from "@mui/material";
+import { Tabs, IconButton, TextField, Autocomplete } from "@mui/material";
 import Drawer from '@mui/material/Drawer';
 import { NavBar } from "./navigationbar-component";
 import { NavigationCart } from "./navigationcart-component";
 import { logoImg } from "../assets";
 import { TabStyle, LogoImg, IconMenuStyle, IconCartStyle, Title, Search } from "../theme";
-import { ItemList, ItemListInterface } from "../assets";
+import { getItem, ItemInterface } from "../service";
 
 
 
-const labeltest = ItemList.map(item => ({ label: item.name, obj: item  }));
 
 export const MainAppBar: React.FunctionComponent = () => {
     const pages = ["יצירת קשר", "חנות"];
     const [selectedPage, setSelectedPage] = useState(0);
     const [openMenu, setOpenMenu] = useState(false);
     const [openCart, setOpenCart] = useState(false);
+    const [imageslist, setImages] = useState<ItemInterface[]>([]);
     const navigation = useNavigate();
+    
+  
+    useEffect(() => {
+        const fetchItemData = async () => {
+            const items = await getItem();
+            setImages(items);
+            
+        }
+        fetchItemData()
+      }, []);
 
-    const onClickToItem = (image: ItemListInterface) => {
+    const labeltest = imageslist.map(item => ({ label: item.image, obj: item  }));
+    const onClickToItem = (image: ItemInterface) => {
         navigation('/item', { state: {  image } });
       };
 

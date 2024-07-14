@@ -4,7 +4,6 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import { ButtonResponsive } from '../theme';
-import { ItemList, ItemListInterface } from '../assets';
 import { GridLayout, ImgResponsive } from '../theme';
 import {  Typography } from '@mui/material';
 import { getItem, ItemInterface} from '../service';

@@ -1,12 +1,12 @@
 import { Module, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Item, user } from 'src/Entities';
+import { Item } from 'src/Entities';
 import { AppController } from 'src/controller';
 import { ItemService } from 'src/service';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([ Item, user]),
+    TypeOrmModule.forFeature([ Item]),
   ],
   controllers: [AppController],
   providers: [ItemService],

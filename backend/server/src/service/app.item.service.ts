@@ -10,8 +10,8 @@ export class ItemService {
     private itemRepository: Repository<Item>,
   ) {}
 
-  async createItem(name: string, price: number, details: string, file: Buffer): Promise<Item> {
-    const newItem = this.itemRepository.create({ name, price, details, file });
+  async createItem(name: string, price: string, details: string, file: Buffer, filepng: Buffer): Promise<Item> {
+    const newItem = this.itemRepository.create({ name, price, details, file, filepng});
     return this.itemRepository.save(newItem);
   }
 
