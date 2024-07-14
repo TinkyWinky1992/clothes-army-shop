@@ -32,7 +32,7 @@ export const MainAppBar: React.FunctionComponent = () => {
         fetchItemData()
       }, []);
 
-    const labeltest = imageslist.map(item => ({ label: item.image, obj: item  }));
+    const labeltest = imageslist.map(item => ({ label: item.name, obj: item  }));
     const onClickToItem = (image: ItemInterface) => {
         navigation('/item', { state: {  image } });
       };
@@ -51,9 +51,9 @@ export const MainAppBar: React.FunctionComponent = () => {
     const toggleDrawerCart = (newOpen: boolean) =>() => {
         setOpenCart(newOpen)
     }
-
+    
     return (
-        <AppBar position="static" sx={{ backgroundColor: 'rgba(32, 32, 32, 0.7)' }}>
+        <AppBar position="static" >
             <Toolbar sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <IconButton sx={{ position: "absolute", left: 30, display: { xs: "flex", md: "none" } }} edge="start" color="inherit" aria-label="menu" onClick={toggleDrawerMenu(true)}>
                     <IconMenuStyle />
@@ -107,7 +107,7 @@ export const MainAppBar: React.FunctionComponent = () => {
                 </Box>
 
                 <Box>
-                    <Tabs sx={{ display: { xs: "none", md: "flex" } }} value={selectedPage} onChange={handleChange}>
+                    <Tabs sx={{ display: { xs: "none", md: "flex" } }}  onChange={handleChange}>
                         {pages.map((page, index) => (
                             <TabStyle
                                 key={index}

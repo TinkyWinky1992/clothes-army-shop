@@ -14,12 +14,12 @@ export const NavigationCart: React.FC = () => {
     const items = useSelector(selectCartItems); 
     
     return (
-      <Grid container sx={{ backgroundColor: 'rgba(0, 0, 0, 0.7)', minHeight: '100vh' }}>
+      <Grid container sx={{ backgroundColor: 'rgba(25, 118, 210, 1)', minHeight: '100vh' }}>
         <Box sx={{ width: 250 }} role="presentation">
           <List sx={{ padding: 2 }}>
             <Typography variant="h6" sx={{ color: "white", fontFamily: "hebrewFont", fontWeight: 700 }}>עגלה</Typography>
           </List>
-          <Divider />
+          <Divider sx={{color:"white"}}/>
             {items.map((item, index) => (
               <Box key={index} display="flex" sx={{ pt: 2, pd: 2 }} alignItems="start" justifyContent="space-between">
                 <Avatar src={item.image} sx={{ width: 96, height: 96 }} />
@@ -33,7 +33,7 @@ export const NavigationCart: React.FC = () => {
                 </Box>
               </Box>
             ))}
-          <Divider variant="inset" sx={{ border: 1 }} />
+          <Divider variant="inset" sx={{ border: 1, color:"white"}} />
         </Box>
       </Grid>
     );
