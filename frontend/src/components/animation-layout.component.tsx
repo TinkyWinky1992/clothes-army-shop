@@ -2,12 +2,15 @@
 import React from 'react';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import { BackGround, SecondBackGround } from "../assets";
-import { GridLayout } from '../theme';
+import { GridLayout, Title } from '../theme';
 import { ImageGallery } from "./gallery-component";
 import { ShowCase } from "./showcase-component";
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 
+import '../fonts/font.css';
 export const AnimationLayout: React.FC = () => {
+
+
     return (
         <div>
             <GridLayout container >
@@ -25,7 +28,8 @@ export const AnimationLayout: React.FC = () => {
                                 filter: "blur(5px)",
                                 opacity: 0.8,
                             }} />
-                            <Grid item style={{
+                            <Grid item  style={{ 
+                            
                                 position: 'absolute',
                                 top: 0,
                                 left: 0,
@@ -33,8 +37,9 @@ export const AnimationLayout: React.FC = () => {
                                 height: '100%',
                                 zIndex: 1, 
                             }}>
-                                <ShowCase/>
-                                
+       
+
+                                <ShowCase/>                   
                             </Grid>
                             
   
@@ -52,14 +57,18 @@ export const AnimationLayout: React.FC = () => {
                                 filter: "blur(5px)",
                                 opacity: 0.8,
                             }} />
-                            <Grid item style={{
+                            <Grid item  style={{
+                                
                                 position: 'absolute',
-                                top: 0,
-                                left: 0,
                                 width: '100%',
                                 height: '100%',
-                                zIndex: 1, 
+                                zIndex: 1,
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                flexDirection: 'column',
                             }}>
+                                <Typography sx={{color:"white", fontFamily:"hebrewFont", fontSize:{xs:"20px", sm:"50px"}}} >גלרייה</Typography>
                                 <ImageGallery />
                             </Grid>
                         </ParallaxLayer>

@@ -4,6 +4,7 @@ import { GridLayout, TitleRsponsive } from '../theme';
 import { Box, Typography, Button, Grid } from '@mui/material';
 import { addItemToCart, store} from './Cart';
 import "../fonts/font.css";
+import { itembg } from '../assets';
 
 export const ItemShowCase: React.FC = () => {
     const { state } = useLocation();
@@ -13,7 +14,7 @@ export const ItemShowCase: React.FC = () => {
     };
 
     return (
-        <GridLayout container sx={{ backgroundColor: 'rgba(32, 32, 32, 0.7)', justifyContent: 'center', alignItems: 'center' }}>
+        <GridLayout container sx={{  justifyContent: 'center', alignItems: 'center', backgroundImage: `url(${itembg})`,   minHeight: '100vh', }}>
         <Box sx={{
           maxWidth: { xl:"20%",md:'30%', xs:"80%" }, 
           maxHeight: { md:'15%'  }, 
@@ -45,12 +46,12 @@ export const ItemShowCase: React.FC = () => {
             height: { xl: "40%", md: "30%", xs: "20%", sm: "20%" },
             ml: { xl: 20, md: 20, xs: 0, sm: 0 }
           }}>
-            <TitleRsponsive  sx={{fontFamily:"hebrewFont", direction: "rtl", color:"white"}} >{state.image.name}</TitleRsponsive>
-            <Typography variant="h6" sx={{fontFamily:"hebrewFont", direction: "rtl", color:"white", fontSize:{xl:"20px", md:"15px",sm:"15px", xs:"10px"}}} >{state.image.details}</Typography>
+            <TitleRsponsive  sx={{fontFamily:"hebrewFont", direction: "rtl", color:"black"}} >{state.image.name}</TitleRsponsive>
+            <Typography variant="h6" sx={{fontFamily:"hebrewFont", direction: "rtl", color:"black", fontSize:{xl:"20px", md:"15px",sm:"15px", xs:"10px"}}} >{state.image.details}</Typography>
             
             <Grid item sx={{ border: 1, borderRadius: 4}}>
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <Typography variant="h4" sx={{ ml:20 , color:"white"}}>
+                    <Typography variant="h4" sx={{ ml:20 , color:"black"}}>
                     {state.image.price}
                     </Typography>
                     <Box sx={{

@@ -27,9 +27,9 @@ export const ImageGallery: React.FC = () => {
 
   return (
     <GridLayout sx={{ justifyContent: 'center', alignItems: 'center' }}>
-    <ImageList variant="masonry" cols={10} gap={20}>
+    <ImageList variant="masonry" cols={3} gap={20}>
       {imageslist.map((image) => (
-        <ButtonResponsive variant="contained" sx={{ backgroundColor: 'rgba(0, 0, 0, 0.7)', padding:1}} onClick={() => onClick(image)}>
+        <ButtonResponsive variant="contained"  sx={{ backgroundColor: 'rgba(0, 0, 0, 0.7)', padding:{xs:0, sm:1}, margin: 2}} onClick={() => onClick(image)}>
           <ImageListItem key={image.id} sx={{ width: "200px", height: "200px" }}>
             <ImgResponsive src={image.image} alt={image.name} loading="lazy"  
               style={{
@@ -59,8 +59,3 @@ export const ImageGallery: React.FC = () => {
   );
 };
 
-
-/*
-
-{id: 3, name: 'test', details: 'teststsest', price: '12', image: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD…/TjBlWkvx6S9h69hYDz7H7IWO5lYihZXZDz7+n//+AAMA/9k='}
-*/

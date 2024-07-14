@@ -10,29 +10,31 @@ import Divider from '@mui/material/Divider';
 import MailIcon from '@mui/icons-material/Mail';
 import Typography from '@mui/material/Typography';
 import { Grid, Hidden } from '@mui/material';
-import HistoryIcon from '@mui/icons-material/History';
-import LogoutIcon from '@mui/icons-material/Logout';
+import { useNavigate } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import "../fonts/font.css" 
-const hiddenDrwaerItems = [
-    { text: 'גלריה', icon: <ShoppingCartIcon /> },
-    { text: 'חנות', icon: <HistoryIcon /> },
-    { text: 'Three', icon: <MailIcon /> },
-]
+
 const drawerItems = [
-    { text: 'עגלת קניות', icon: <ShoppingCartIcon /> },
+    { text: 'חנות', icon: <ShoppingCartIcon /> },
     { text: 'יצירת קשר', icon: <MailIcon /> },
 ];
 
 export const NavBar:React.FC = () => {
+    const navigation = useNavigate();
     const [open, setOpen] = useState(false);
+
+    const handleChange = ( newValue: number) => {
+        if (newValue === 0 || newValue === 1) {
+            navigation('/')
+        }
+    }
     
     const toggleDrawer = (newOpen: boolean) => () => {
         console.log("hi");
         setOpen(newOpen);
     };
     return (
-        <Grid container sx={{ backgroundColor: 'rgba(0, 0, 0, 0.7)', minHeight: '100vh' }}>
+        <Grid container sx={{ backgroundColor: 'rgba(25, 118, 210, 1)', minHeight: '100vh' }}>
             <Box 
                 sx={{ width: 250 }}
             
@@ -44,26 +46,10 @@ export const NavBar:React.FC = () => {
                     <Typography variant="h6" sx={{ color: "white", fontFamily: "hebrewFont", fontWeight: 700 }}>תפריט</Typography>
                 </List>  
                 <Divider />
-                <Hidden mdUp>
-                <List>
-                    {hiddenDrwaerItems.map((item) => (
-                        <ListItem key={item.text} disablePadding sx={{fontFamily: "hebrewFont"}} >
-                            <ListItemButton>
-                                <ListItemIcon sx={{color: 'white'}}>
-                                    {item.icon}
-                                </ListItemIcon>
-                                <ListItemText primary={item.text} sx={{ color: 'white', fontFamily: 'hebrewFont, Arial, sans-serif' }} />
-                            </ListItemButton>
-                        </ListItem>
-                    ))}
-                </List>
-                <Divider />
-                    
-                </Hidden>
                 <List>
                     {drawerItems.map((item) => (
                         <ListItem key={item.text} disablePadding >
-                            <ListItemButton>
+                            <ListItemButton onClick={() => handleChange(drawerItems.indexOf(item))}>
                                 <ListItemIcon sx={{color: 'white'}}>
                                     {item.icon}
                                 </ListItemIcon>

@@ -20,9 +20,11 @@ import image19 from './item/0c2d4d1f-56b1-46b0-98bf-3c2a1fd05439.jpg'
 
 import background from './b.jpg'
 import secondbackground from './c.jpg'
-
+import itembackground from './itempagebackground.jpg'
 export const BackGround = background;
 export const SecondBackGround = secondbackground;
+export const itembg = itembackground;
+
 
 export interface ItemListInterface {
     url: string;
