@@ -63,13 +63,13 @@ export const ShowCase: React.FunctionComponent = () => {
           <IconButton onClick={moveToBelowImg}>
             <ArrowBackIosNewIcon />
           </IconButton>
-          <Box sx={{ maxWidth: "50%", maxHeight: "50%", ml: 3, mr: 3 }}>
+          <Box sx={{ maxWidth: "70%", maxHeight: "70%", ml: 3, mr: 3 }}>
             <img
               src={imagesList[currentIndex].imagepng}
               alt={`image ${currentIndex}`}
               style={{
-                maxWidth: "50%",
-                maxHeight: "50%",
+                maxWidth: "70%",
+                maxHeight: "70%",
                 opacity: fadeOut ? 0 : 1,
                 transition: "opacity  0.5s ease",
               }}

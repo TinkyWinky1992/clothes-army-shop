@@ -4,7 +4,7 @@ import { AppController } from 'src/controller';
 import { ItemService } from 'src/service';
 import { ItemModule } from './app.item.module';
 import { Item } from 'src/Entities';
-
+import { join } from 'path';
 @Module({
   imports: [TypeOrmModule.forRoot({
     type:'mysql',
@@ -13,7 +13,8 @@ import { Item } from 'src/Entities';
     username: 'root',
     password:'admin',
     database:'shop_database',
-    entities:[Item],
+    entities: [Item],
+    migrations: [join(__dirname, '../../../../shop_database_items.sql')],
     synchronize:true,
   }),
     ItemModule,

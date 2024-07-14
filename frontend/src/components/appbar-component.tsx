@@ -38,9 +38,12 @@ export const MainAppBar: React.FunctionComponent = () => {
       };
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-        if (newValue === 0 || newValue === 1 || newValue === 2) {
+        if (newValue === 1 ) {
             navigation('/')
         }
+        else if(newValue === 0) 
+            navigation('/contant')
+
         setSelectedPage(newValue);
     }
 

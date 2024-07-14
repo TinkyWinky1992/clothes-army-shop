@@ -24,9 +24,15 @@ export const NavBar:React.FC = () => {
     const [open, setOpen] = useState(false);
 
     const handleChange = ( newValue: number) => {
-        if (newValue === 0 || newValue === 1) {
-            navigation('/')
+        if (newValue === 0 ) 
+            navigation('/');
+
+        else if(newValue === 1) 
+        {
+            console.log(newValue);
+            navigation('/contant');
         }
+           
     }
     
     const toggleDrawer = (newOpen: boolean) => () => {

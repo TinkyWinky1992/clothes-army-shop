@@ -2,7 +2,7 @@
 import React from 'react';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import { BackGround, SecondBackGround } from "../assets";
-import { GridLayout, Title } from '../theme';
+import { GridLayout } from '../theme';
 import { ImageGallery } from "./gallery-component";
 import { ShowCase } from "./showcase-component";
 import { Grid, Typography } from '@mui/material';
@@ -78,18 +78,3 @@ export const AnimationLayout: React.FC = () => {
         </div>
     );
 }
-/*
-
-    const [image, setImage] = useState<string>('');
-
-    useEffect(() => {
-        getItem()
-         .then(response => {
-            const imageData = btoa(String.fromCharCode(...new Uint8Array(response)));
-            setImage(`data:image/jpeg;base64,${imageData}`);
-          })
-         .catch(error => {
-            console.error(error);
-          });
-      }, []);
-*/
