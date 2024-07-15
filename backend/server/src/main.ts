@@ -1,13 +1,20 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { AppModule} from  'src/module'
-import * as express from 'express';
+import serverless from 'serverless-http';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.use(express.json());
-  app.enableCors();
-  app.useGlobalPipes(new ValidationPipe())
-  await app.listen(5000);
+  const globalPrefix = '.netlify/functions/main';
+  app.setGlobalPrefix(globalPrefix);
+  await app.init();
+
+  const expressApp = app.getHttpAdapter().getInstance();
+  return serverless(expressApp)
 }
-bootstrap();
+
+let server;
+export const handler = async (event, context, callback) => {
+  server = server ?? (await bootstrap());
+  return server(event, context, callback);
+};

@@ -1,21 +1,15 @@
-import React ,{useRef, useState} from 'react';
+import React ,{useRef} from 'react';
 import { useLocation } from 'react-router-dom';
 import { GridLayout, TitleRsponsive } from '../../theme';
 import { Box, Typography, Button, Grid } from '@mui/material';
-import { addItemToCart, store} from '../Cart';
+
 import "../../fonts/font.css";
 import { itembg } from '../../assets';
 import { AlertModal } from '../Alert';
-import { NumberInput } from './increasement-component';
+
 export const ItemShowCase: React.FC = () => {
     const { state } = useLocation();
     const alertRef = useRef<{ open: () => void }>(null);
-    const [quantity, setQuantity] = useState(1);
-
-    const handleAddToCart = () => {
-      console.log(quantity);
-      store.dispatch(addItemToCart(state.image, quantity));
-    };
     
     const handleOpenModel = () => {
         alertRef.current?.open();
@@ -95,4 +89,10 @@ export const ItemShowCase: React.FC = () => {
                         הוספה לעגלה
                     </Button>
                    <NumberInput value={quantity} onChange={(event, value:number | undefined) => setQuantity(value?? 0)}/>
+
+
+                       const handleAddToCart = () => {
+      console.log(quantity);
+      store.dispatch(addItemToCart(state.image, quantity));
+    };
  */

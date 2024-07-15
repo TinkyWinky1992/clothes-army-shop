@@ -8,15 +8,13 @@ import Drawer from '@mui/material/Drawer';
 import { NavBar } from "./navigationbar-component";
 import { NavigationCart } from "./navigationcart-component";
 import { logoImg } from "../assets";
-import { TabStyle, LogoImg, IconMenuStyle, IconCartStyle, Title, Search } from "../theme";
+import { TabStyle, LogoImg, IconMenuStyle, Title, Search } from "../theme";
 import { getItem, ItemInterface } from "../service";
-
 
 
 
 export const MainAppBar: React.FunctionComponent = () => {
     const pages = ["יצירת קשר", "חנות"];
-    const [selectedPage, setSelectedPage] = useState(0);
     const [openMenu, setOpenMenu] = useState(false);
     const [openCart, setOpenCart] = useState(false);
     const [imageslist, setImages] = useState<ItemInterface[]>([]);
@@ -36,7 +34,7 @@ export const MainAppBar: React.FunctionComponent = () => {
     const onClickToItem = (image: ItemInterface) => {
         navigation('/item', { state: {  image } });
       };
-
+      //@ts-ignore
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         if (newValue === 1 ) {
             navigation('/')
@@ -44,7 +42,6 @@ export const MainAppBar: React.FunctionComponent = () => {
         else if(newValue === 0) 
             navigation('/contant')
 
-        setSelectedPage(newValue);
     }
 
     const handelLogoClick = () => {
@@ -95,6 +92,7 @@ export const MainAppBar: React.FunctionComponent = () => {
                             getOptionLabel={(option) =>
                                 option.label
                               }
+                              //@ts-ignore
                               onChange={(event, value) => {
                                 if(value)
                                     onClickToItem(value.obj);
