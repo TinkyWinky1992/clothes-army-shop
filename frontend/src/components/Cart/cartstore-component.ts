@@ -1,6 +1,6 @@
 import { configureStore, createSelector } from '@reduxjs/toolkit';
 import { ItemListInterface } from '../../assets';
-import { useSelector } from 'react-redux';
+
 
 interface CartState {
   items: ItemListInterface[];

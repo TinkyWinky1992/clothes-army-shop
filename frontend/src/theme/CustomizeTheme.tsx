@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import React from "react";
-import InputBase from '@mui/material/InputBase';
+
 import Toolbar from '@mui/material/Toolbar';
 import Tab from '@mui/material/Tab';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -109,7 +107,7 @@ export const ToolStyle = styled(Toolbar)(({ theme }) => ({
     },
 })) 
 
-export const TabStyle = styled(Tab)(({ theme }) => ({
+export const TabStyle = styled(Tab)(({  }) => ({
     margin: 1,
     color: "white",
     display: "block",
