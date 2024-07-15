@@ -14,7 +14,7 @@ import { join } from 'path';
     password:'admin',
     database:'shop_database',
     entities: [Item],
-    migrations: [join(__dirname, '../../../../shop_database_items.sql')],
+    migrations: [join(__dirname, 'backend/shop_database_items.sql')],
     synchronize:true,
   }),
     ItemModule,
