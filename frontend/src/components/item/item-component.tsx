@@ -1,22 +1,31 @@
-import React from 'react';
+import React ,{useRef, useState} from 'react';
 import { useLocation } from 'react-router-dom';
-import { GridLayout, TitleRsponsive } from '../theme';
+import { GridLayout, TitleRsponsive } from '../../theme';
 import { Box, Typography, Button, Grid } from '@mui/material';
-import { addItemToCart, store} from './Cart';
-import "../fonts/font.css";
-import { itembg } from '../assets';
-
+import { addItemToCart, store} from '../Cart';
+import "../../fonts/font.css";
+import { itembg } from '../../assets';
+import { AlertModal } from '../Alert';
+import { NumberInput } from './increasement-component';
+import { ItemInterface } from '../../service';
 export const ItemShowCase: React.FC = () => {
     const { state } = useLocation();
+    const alertRef = useRef<{ open: () => void }>(null);
+    const [quantity, setQuantity] = useState(1);
 
     const handleAddToCart = () => {
-      store.dispatch(addItemToCart(state.image));
+      console.log(quantity);
+      store.dispatch(addItemToCart(state.image, quantity));
     };
-
+    
+    const handleOpenModel = () => {
+        alertRef.current?.open();
+      
+    }
     return (
         <GridLayout container sx={{  justifyContent: 'center', alignItems: 'center', backgroundImage: `url(${itembg})`,   minHeight: '100vh', }}>
         <Box sx={{
-          maxWidth: { xl:"20%",md:'30%', xs:"80%" }, 
+          maxWidth: { xl:"20%",md:'30%', xs:"60%" }, 
           maxHeight: { md:'15%'  }, 
           border: 1, 
           display: 'flex',
@@ -42,9 +51,10 @@ export const ItemShowCase: React.FC = () => {
           />
         </Box>
         <Box sx={{
-            width: { xl: "25%", md: "40%", xs: "100%", sm: "100%" },
-            height: { xl: "40%", md: "30%", xs: "20%", sm: "20%" },
-            ml: { xl: 20, md: 20, xs: 0, sm: 0 }
+            width: { xl: "25%", md: "40%", xs: "70%", sm: "100%" },
+            height: { xl: "40%", md: "30%", xs: "10%", sm: "20%" },
+            ml: { xl: 20, md: 20, xs: 0, sm: 0 },
+            marginBottom: { xl: 0, md: 0, xs: 10, sm: 10},
           }}>
             <TitleRsponsive  sx={{fontFamily:"hebrewFont", direction: "rtl", color:"black"}} >{state.image.name}</TitleRsponsive>
             <Typography variant="h6" sx={{fontFamily:"hebrewFont", direction: "rtl", color:"black", fontSize:{xl:"20px", md:"15px",sm:"15px", xs:"10px"}}} >{state.image.details}</Typography>
@@ -64,15 +74,16 @@ export const ItemShowCase: React.FC = () => {
                     <Button variant="contained" onClick={handleAddToCart} sx={{ marginBlockEnd: 5, backgroundColor: "#007bff", color: "white", fontFamily: "hebrewFont" }}>
                         הוספה לעגלה
                     </Button>
-                    <Button variant="contained" sx={{ marginBlockEnd: 5, backgroundColor: "#dc3545", color: "white", fontFamily: "hebrewFont" }}>
+                    <Button variant="contained" onClick={handleOpenModel} sx={{ marginBlockEnd: 5, backgroundColor: "#dc3545", color: "white", fontFamily: "hebrewFont" }}>
                         קנייה מהירה
                     </Button>
                     </Box>
+                    <NumberInput value={quantity} onChange={(event, value:number | undefined) => setQuantity(value?? 0)}/>
                 </Box>
             </Grid>
 
         </Box>
-
+        <AlertModal ref={alertRef} />
       </GridLayout>
     );
 };

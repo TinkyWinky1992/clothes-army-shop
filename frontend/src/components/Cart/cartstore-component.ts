@@ -22,14 +22,29 @@ export const store = configureStore({
   reducer: cartReducer,
 });
 
-
-export const addItemToCart = (item: ItemListInterface) => {
-  return { type: 'ADD_ITEM', payload: item };
+export const addItemToCart = (item: ItemListInterface, quantity: number) => {
+  return {
+    type: 'ADD_ITEM',
+    payload: { ...item, quantity },
+  };
 };
+
+
 
 
 type RootState = ReturnType<typeof store.getState>;
 export const selectCartItems = createSelector(
   (state: RootState) => state.items,
-  (items) => items
+  (items) => {
+    const uniqueItems = Array.from(new Set(items.map((item) => item.image)));
+    return uniqueItems.map((image) => {
+      const itemData = items.find((item) => item.image === image);
+      return {
+        image: itemData.image,
+        name: itemData.name,
+        price: itemData.price,
+        quantity: itemData.quantity,
+      };
+    });
+  }
 );

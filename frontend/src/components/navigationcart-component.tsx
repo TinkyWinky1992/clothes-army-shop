@@ -27,8 +27,11 @@ export const NavigationCart: React.FC = () => {
                   <Typography variant="h6" fontFamily="hebrewFont" color="white" sx={{ direction: "rtl" }}>
                     {item.name}
                   </Typography>
-                  <Typography variant="subtitle2" fontFamily="hebrewFont" color="white" sx={{ direction: "rtl" }}>
-                    {item.details}
+                  <Typography variant="h6" fontFamily="hebrewFont" color="white" sx={{ direction: "rtl", mt:1}}>
+                    {item.price}
+                  </Typography>
+                  <Typography variant="h6" fontFamily="hebrewFont" color="white" sx={{ direction: "rtl", mt:1}}>
+                    כמות : {item.quantity}
                   </Typography>
                 </Box>
               </Box>

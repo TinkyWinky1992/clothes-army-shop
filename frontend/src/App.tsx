@@ -16,7 +16,7 @@ function Layout() {
 
 const App: React.FC = () => {
   return (
-    <Provider store={store}> {/* Wrap the BrowserRouter with Provider */}
+    <Provider store={store}>
       <BrowserRouter>
         <div className="App">
           <Routes>

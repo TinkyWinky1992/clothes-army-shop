@@ -47,6 +47,11 @@ export const MainAppBar: React.FunctionComponent = () => {
         setSelectedPage(newValue);
     }
 
+    const handelLogoClick = () => {
+            navigation('/')
+    }
+        
+
     const toggleDrawerMenu = (newOpen: boolean) => () => {
         setOpenMenu(newOpen);
     };
@@ -120,7 +125,7 @@ export const MainAppBar: React.FunctionComponent = () => {
                     </Tabs>
                 </Box>
                 <Box sx={{ position: "absolute", right: 0, marginRight: 1, display: "flex", alignItems: "center" }}>
-                    <IconButton>
+                    <IconButton onClick={handelLogoClick}>
                         <Title>ARMOURY TECH</Title>
                         <LogoImg src={logoImg} />
                     </IconButton>
