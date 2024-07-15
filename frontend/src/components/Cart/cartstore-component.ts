@@ -16,7 +16,7 @@ const cartReducer = (state = initialState, action: any) => {
       return {...state, items: [...state.items, action.payload] };
     case 'UPDATE_ITEM':
       const updatedItems = state.items.map((item) => {
-        if (item.url === action.payload.image) {
+        if (item.img === action.payload.image) {
           return action.payload;
         }
         return item;

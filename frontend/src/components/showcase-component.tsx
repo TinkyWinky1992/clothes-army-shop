@@ -3,29 +3,23 @@ import { Grid, IconButton, Box, Typography } from "@mui/material";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { GridLayout } from "../theme";
-import { getItem, ItemInterface } from "../service";
 import Grow from '@mui/material/Grow';
-
+import { ItemList } from "../assets";
 export const ShowCase: React.FunctionComponent = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fadeOut, setFadeOut] = useState(false);
-  const [imagesList, setImages] = useState<ItemInterface[]>([]);
   const [checked, setChecked] = useState(false);
 
   useEffect(() => {
     setChecked(true);
-    const fetchItemData = async () => {
-      const items = await getItem();
-      setImages(items);
-    };
-    fetchItemData();
+   
   }, []);
 
   const moveToNextImg = () => {
     setFadeOut(true);
     setChecked(false); // Reset checked state to false
     setTimeout(() => {
-      const nextIndex = (currentIndex + 1) % imagesList.length;
+      const nextIndex = (currentIndex + 1) % ItemList.length;
       setCurrentIndex(nextIndex);
       setFadeOut(false);
       setChecked(true); // Set checked state to true again
@@ -35,7 +29,7 @@ export const ShowCase: React.FunctionComponent = () => {
   const moveToBelowImg = () => {
     setFadeOut(true);
     setChecked(false); // Reset checked state to false
-    const nextIndex = currentIndex === 0 ? imagesList.length - 1 : currentIndex - 1;
+    const nextIndex = currentIndex === 0 ? ItemList.length - 1 : currentIndex - 1;
     setTimeout(() => {
       setCurrentIndex(nextIndex);
       setFadeOut(false);
@@ -43,7 +37,7 @@ export const ShowCase: React.FunctionComponent = () => {
     }, 500);
   };
 
-  if (imagesList.length === 0) {
+  if (ItemList.length === 0) {
     return <div>Loading...</div>; 
   }
 
@@ -65,7 +59,7 @@ export const ShowCase: React.FunctionComponent = () => {
           </IconButton>
           <Box sx={{ maxWidth: "70%", maxHeight: "70%", ml: 3, mr: 3 }}>
             <img
-              src={imagesList[currentIndex].imagepng}
+              src={ItemList[currentIndex].imgpng}
               alt={`image ${currentIndex}`}
               style={{
                 maxWidth: "70%",
@@ -100,7 +94,7 @@ export const ShowCase: React.FunctionComponent = () => {
               mr: 5,
             }}
             >
-              {imagesList[currentIndex].name}
+              {ItemList[currentIndex].name}
             </Typography>
           </Grow>
           <Grow
@@ -117,7 +111,7 @@ export const ShowCase: React.FunctionComponent = () => {
               mr: 5,
             }}
             >
-              {imagesList[currentIndex].details}
+              {ItemList[currentIndex].details}
             </Typography>
           </Grow>
         </Box>

@@ -32,7 +32,7 @@ export const ItemShowCase: React.FC = () => {
           marginLeft: {xs:"5px"},
         }}>
           <img
-            src={state.image.image}
+            src={state.image.img}
             alt={`Image ${state.image.name}`}
             style={{
               width: '100%', 

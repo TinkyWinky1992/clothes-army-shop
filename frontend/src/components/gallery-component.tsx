@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
@@ -6,21 +6,13 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 import { ButtonResponsive } from '../theme';
 import { GridLayout, ImgResponsive } from '../theme';
 import { Typography } from '@mui/material';
-import { getItem, ItemInterface } from '../service';
+import { ItemList , ItemListInterface} from "../assets";
 
 export const ImageGallery: React.FC = () => {
   const navigate = useNavigate();
-  const [imageslist, setImages] = useState<ItemInterface[]>([]);
 
-  useEffect(() => {
-    const fetchItemData = async () => {
-      const items = await getItem();
-      setImages(items);
-    };
-    fetchItemData();
-  }, []);
 
-  const onClick = (image: ItemInterface) => {
+  const onClick = (image: ItemListInterface) => {
     navigate('/item', { state: { image } });
   };
 
@@ -36,10 +28,10 @@ export const ImageGallery: React.FC = () => {
           flexWrap: 'wrap', 
            scrollbarWidth: "none"
           }} variant="woven"  cols={3} gap={20}>
-        {imageslist.map((image: ItemInterface) => (
+        {ItemList.map((image: ItemListInterface) => (
           <ButtonResponsive variant="contained" sx={{ backgroundColor: 'rgba(0, 0, 0, 0.7)', padding: { xs: 0, sm: 1 }, margin: 2 }} onClick={() => onClick(image)}>
-            <ImageListItem key={image.id} sx={{ width: "150px", height: "150px" }}>
-              <ImgResponsive  sx={{marginTop: {xs:5, sm:0}}}src={image.image} alt={image.name} loading="lazy" 
+            <ImageListItem key={image.name} sx={{ width: "150px", height: "150px" }}>
+              <ImgResponsive  sx={{marginTop: {xs:5, sm:0}}}src={image.img} alt={image.name} loading="lazy" 
                 style={{
                   maxWidth: "50%",
                   maxHeight: "50%",
