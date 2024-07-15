@@ -74,9 +74,7 @@ export const MainAppBar: React.FunctionComponent = () => {
                     <NavBar />
                 </Drawer>
 
-                <IconButton sx={{ position: "absolute", left:{xs:"4rem" , sm:100 }  }} edge="start" color="inherit" aria-label="menu" onClick={toggleDrawerCart(true)}>
-                    <IconCartStyle />
-                </IconButton>
+
                 <Drawer
                     anchor="left"
                     open={openCart}
@@ -134,3 +132,10 @@ export const MainAppBar: React.FunctionComponent = () => {
         </AppBar>
     );
 };
+
+/*
+
+                <IconButton sx={{ position: "absolute", left:{xs:"4rem" , sm:100 }  }} edge="start" color="inherit" aria-label="menu" onClick={toggleDrawerCart(true)}>
+                    <IconCartStyle />
+                </IconButton>
+*/

@@ -11,7 +11,9 @@ import { selectCartItems } from "./Cart";
 
 
 export const NavigationCart: React.FC = () => {
-    const items = useSelector(selectCartItems); 
+    const items = useSelector(selectCartItems);
+    
+    
     
     return (
       <Grid container sx={{ backgroundColor: 'rgba(25, 118, 210, 1)', minHeight: '100vh' }}>

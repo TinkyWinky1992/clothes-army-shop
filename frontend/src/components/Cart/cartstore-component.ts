@@ -1,5 +1,6 @@
 import { configureStore, createSelector } from '@reduxjs/toolkit';
 import { ItemListInterface } from '../../assets';
+import { useSelector } from 'react-redux';
 
 interface CartState {
   items: ItemListInterface[];
@@ -12,7 +13,15 @@ const initialState: CartState = {
 const cartReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case 'ADD_ITEM':
-      return { ...state, items: [...state.items, action.payload] };
+      return {...state, items: [...state.items, action.payload] };
+    case 'UPDATE_ITEM':
+      const updatedItems = state.items.map((item) => {
+        if (item.url === action.payload.image) {
+          return action.payload;
+        }
+        return item;
+      });
+      return {...state, items: updatedItems };
     default:
       return state;
   }
@@ -21,14 +30,6 @@ const cartReducer = (state = initialState, action: any) => {
 export const store = configureStore({
   reducer: cartReducer,
 });
-
-export const addItemToCart = (item: ItemListInterface, quantity: number) => {
-  return {
-    type: 'ADD_ITEM',
-    payload: { ...item, quantity },
-  };
-};
-
 
 
 
@@ -48,3 +49,13 @@ export const selectCartItems = createSelector(
     });
   }
 );
+
+
+
+export const addItemToCart = (item: ItemListInterface, quantity: number) => {
+  return {
+    type: 'ADD_ITEM',
+    payload: { ...item, quantity },
+  };
+};
+

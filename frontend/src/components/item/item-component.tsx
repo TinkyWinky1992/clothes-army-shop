@@ -7,7 +7,6 @@ import "../../fonts/font.css";
 import { itembg } from '../../assets';
 import { AlertModal } from '../Alert';
 import { NumberInput } from './increasement-component';
-import { ItemInterface } from '../../service';
 export const ItemShowCase: React.FC = () => {
     const { state } = useLocation();
     const alertRef = useRef<{ open: () => void }>(null);
@@ -71,19 +70,29 @@ export const ItemShowCase: React.FC = () => {
                     gap: 2,
                     mt: 2,
                     }}>
-                    <Button variant="contained" onClick={handleAddToCart} sx={{ marginBlockEnd: 5, backgroundColor: "#007bff", color: "white", fontFamily: "hebrewFont" }}>
-                        הוספה לעגלה
-                    </Button>
+
                     <Button variant="contained" onClick={handleOpenModel} sx={{ marginBlockEnd: 5, backgroundColor: "#dc3545", color: "white", fontFamily: "hebrewFont" }}>
                         קנייה מהירה
                     </Button>
                     </Box>
-                    <NumberInput value={quantity} onChange={(event, value:number | undefined) => setQuantity(value?? 0)}/>
+
                 </Box>
             </Grid>
 
         </Box>
         <AlertModal ref={alertRef} />
       </GridLayout>
+      
     );
+
 };
+
+
+
+/**
+ * 
+ *                     <Button variant="contained" onClick={handleAddToCart} sx={{ marginBlockEnd: 5, backgroundColor: "#007bff", color: "white", fontFamily: "hebrewFont" }}>
+                        הוספה לעגלה
+                    </Button>
+                   <NumberInput value={quantity} onChange={(event, value:number | undefined) => setQuantity(value?? 0)}/>
+ */
