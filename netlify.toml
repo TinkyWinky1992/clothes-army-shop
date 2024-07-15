@@ -2,6 +2,15 @@
   command = "npm install && npm run build"
   publish = "frontend"
   functions = "netlify/functions"
+[cache]
+
+  paths = [
+    "frontend/node_modules",
+    "frontend/package-lock.json",
+    "backend/server/package.json",
+    "backend\server\node_modules",
+
+  ]
 
 [[redirects]]
   from = "/api/*"
